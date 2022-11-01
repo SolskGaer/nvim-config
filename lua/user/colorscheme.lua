@@ -5,4 +5,4 @@ if not status_ok then
 	return
 end
 
-vim.o.background = light
+vim.o.background = "light"

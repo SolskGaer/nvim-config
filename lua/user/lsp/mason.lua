@@ -9,6 +9,7 @@ local servers = {
 	"yamlls",
 	"gopls",
 	"clangd",
+	"rust_analyzer",
 }
 
 local settings = {
@@ -52,3 +53,25 @@ for _, server in pairs(servers) do
 
 	lspconfig[server].setup(opts)
 end
+
+lspconfig.rust_analyzer.setup({
+	on_attach = require("user.lsp.handlers").on_attach,
+	settings = {
+		["rust-analyzer"] = {
+			imports = {
+				granularity = {
+					group = "module",
+				},
+				prefix = "self",
+			},
+			cargo = {
+				buildScripts = {
+					enable = true,
+				},
+			},
+			procMacro = {
+				enable = true,
+			},
+		},
+	},
+})

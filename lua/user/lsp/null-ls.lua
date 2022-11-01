@@ -27,10 +27,6 @@ null_ls.setup({
 			extra_filetypes = { "go" },
 			extra_args = { "-srcdir", "$DIRNAME" },
 		}),
-		--formatting.goimports_reviser.with({
-		--	extra_filetypes = { "go" },
-		--	extra_args = { "-file-path", "$FILENAME", "-output", "stdout" },
-		--}),
 		formatting.rustfmt.with({
 			extra_filetypes = { "rs" },
 			extra_args = { "--emit=stdout" },
